@@ -24,14 +24,14 @@ class _CropperActionBarState extends State<CropperActionBar> {
 
   @override
   Widget build(BuildContext context) {
-    final iconColor = widget.themeData?.rotateIconColor;
+    final iconColor = widget.themeData?.rotateIconColor ?? Colors.Black;
     final themeData = iconColor != null
         ? Theme.of(context).copyWith(
             iconTheme: IconThemeData(color: iconColor),
             iconButtonTheme: IconButtonThemeData(
               style: ButtonStyle(
                 foregroundColor:
-                    WidgetStateColor.resolveWith((states) => iconColor),
+                    MaterialStateProperty.all(iconColor),
               ),
             ),
           )
